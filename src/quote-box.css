@@ -15,6 +15,9 @@ body {
   width: 300px;
   filter: blur(1px);
   border-radius: 10px 0 0 10px;
+}
+
+.lightsaber__blade--green {
   background: linear-gradient( transparent, green, #55ff22, #fff, #fff, #fff, #55ff22, green, transparent);
 }
 
