@@ -1,0 +1,27 @@
+body {
+  background-color: #000;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightsaber {
+  display: flex;
+}
+
+.lightsaber__blade {
+  height: 20px;
+  width: 300px;
+  filter: blur(1px);
+  border-radius: 10px 0 0 10px;
+  background: linear-gradient( transparent, green, #55ff22, #fff, #fff, #fff, #55ff22, green, transparent);
+}
+
+.lightsaber__hilt {
+  height: 20px;
+  width: 100px;
+  background: linear-gradient( transparent, #333, #666, #ccc, #999, #333, transparent);
+  border-radius: 5px;
+  cursor: pointer;
+}
