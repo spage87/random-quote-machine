@@ -5,10 +5,13 @@ import React from "react";
 
 interface LightsaberProps {
   colour: Colour;
+  handleClick: () => {};
 }
 
 export class Lightsaber extends React.Component<LightsaberProps> {
-  handleClick() {}
+  handleClick = () => {
+    this.props.handleClick();
+  };
   render() {
     return (
       <div className="lightsaber">
