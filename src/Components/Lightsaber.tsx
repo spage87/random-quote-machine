@@ -16,6 +16,7 @@ export class Lightsaber extends React.Component<LightsaberProps> {
     return (
       <div className="lightsaber">
         <div
+          id="lightsaber-blade"
           className={
             "lightsaber__blade lightsaber__blade" + "--" + this.props.colour
           }

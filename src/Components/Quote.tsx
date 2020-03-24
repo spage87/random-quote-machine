@@ -1,5 +1,6 @@
 import "./quote.css";
 
+import { Colour } from "../Colour";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { faJedi } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +8,7 @@ import { faJedi } from "@fortawesome/free-solid-svg-icons";
 interface QuoteProps {
   quote: string;
   author: string;
+  colour: Colour;
 }
 
 export class Quote extends React.Component<QuoteProps> {
@@ -16,7 +18,10 @@ export class Quote extends React.Component<QuoteProps> {
         <div id="text" className="quote__quote">
           "{this.props.quote}"
         </div>
-        <div id="author" className="quote__author">
+        <div
+          id="author"
+          className={"quote__author quote__author" + "--" + this.props.colour}
+        >
           {this.props.author}
         </div>
         <a

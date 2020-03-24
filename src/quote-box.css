@@ -7,19 +7,50 @@ body {
   color: #fff;
 }
 
+.quote__author {}
+
+.quote__author--green {
+  color: green;
+}
+
+.quote__author--blue {
+  color: blue;
+}
+
+.quote__author--red {
+  color: red;
+}
+
+.quote__author--yellow {
+  color: yellow;
+}
+
 .lightsaber {
   display: flex;
 }
 
 .lightsaber__blade {
-  height: 20px;
   width: 300px;
+  height: 20px;
   filter: blur(1px);
   border-radius: 10px 0 0 10px;
+  transition: width 0.3s;
 }
 
 .lightsaber__blade--green {
   background: linear-gradient( transparent, green, #55ff22, #fff, #fff, #fff, #55ff22, green, transparent);
+}
+
+.lightsaber__blade--blue {
+  background: linear-gradient( transparent, blue, #298fca, #fff, #fff, #fff, #298fca, blue, transparent);
+}
+
+.lightsaber__blade--yellow {
+  background: linear-gradient( transparent, #ffd300, yellow, #fff, #fff, #fff, yellow, #ffd300, transparent);
+}
+
+.lightsaber__blade--red {
+  background: linear-gradient( transparent, #CC0000, #ff0800, #fff, #fff, #fff, #ff0800, #CC0000, transparent);
 }
 
 .lightsaber__hilt {

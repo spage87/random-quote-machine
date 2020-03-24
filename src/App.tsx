@@ -38,7 +38,16 @@ class App extends React.Component<{}, AppState> {
         ) {
           this.setState({
             quote: randomQuote["quote"],
-            author: randomQuote["author"]
+            author: randomQuote["author"],
+            colour:
+              randomQuote["author"] === "Darth Vader"
+                ? Colour.Red
+                : randomQuote["author"] === "Yoda" ||
+                  randomQuote["author"] === "Qui-Gon Jinn"
+                ? Colour.Green
+                : randomQuote["author"] === "Obi-Wan Kenobi"
+                ? Colour.Blue
+                : Colour.Yellow
           });
         }
       })
@@ -48,7 +57,11 @@ class App extends React.Component<{}, AppState> {
   render() {
     return (
       <div id="quote-box">
-        <Quote quote={this.state.quote} author={this.state.author} />
+        <Quote
+          colour={this.state.colour}
+          quote={this.state.quote}
+          author={this.state.author}
+        />
         <Lightsaber colour={this.state.colour} handleClick={this.fetchQuote} />
       </div>
     );
