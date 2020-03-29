@@ -20,7 +20,7 @@ export class Quote extends React.Component<QuoteProps> {
         </div>
         <div
           id="author"
-          className={"quote__author quote__author" + "--" + this.props.colour}
+          className={"quote__author quote__author--" + this.props.colour}
         >
           {this.props.author}
         </div>
