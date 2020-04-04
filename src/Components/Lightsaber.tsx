@@ -5,7 +5,7 @@ import React from "react";
 
 interface LightsaberProps {
   colour: Colour;
-  handleClick: () => {};
+  handleClick: any;
 }
 
 interface LightsaberState {
@@ -15,7 +15,7 @@ interface LightsaberState {
 
 enum LightsaberStatus {
   Open,
-  Closed
+  Closed,
 }
 
 export class Lightsaber extends React.Component<
@@ -26,7 +26,7 @@ export class Lightsaber extends React.Component<
     super(props);
     this.state = {
       lightsaberSize: 300,
-      lightsaberStatus: LightsaberStatus.Open
+      lightsaberStatus: LightsaberStatus.Open,
     };
   }
 
@@ -35,7 +35,7 @@ export class Lightsaber extends React.Component<
       lightsaberStatus:
         this.state.lightsaberStatus == LightsaberStatus.Closed
           ? LightsaberStatus.Open
-          : LightsaberStatus.Closed
+          : LightsaberStatus.Closed,
     });
 
     this.lightLightsaber();

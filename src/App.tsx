@@ -1,5 +1,6 @@
 import "./quote-box.css";
 
+import { Button } from "./Components/Button";
 import { Colour } from "./Colour";
 import { Lightsaber } from "./Components/Lightsaber";
 import { Quote } from "./Components/Quote";
@@ -15,11 +16,25 @@ class App extends React.Component<{}, AppState> {
   state = {
     quote: "",
     author: "",
-    colour: Colour.Green
+    colour: Colour.Yellow,
   };
 
   componentDidMount = () => {
     this.fetchQuote();
+  };
+
+  setColour = () => {
+    var author = this.state.author;
+    this.setState({
+      colour:
+        author === "Darth Vader"
+          ? Colour.Red
+          : author === "Yoda" || author === "Qui-Gon Jinn"
+          ? Colour.Green
+          : author === "Obi-Wan Kenobi"
+          ? Colour.Blue
+          : Colour.Yellow,
+    });
   };
 
   fetchQuote = async () => {
@@ -28,7 +43,7 @@ class App extends React.Component<{}, AppState> {
     );
     result
       .json()
-      .then(response => {
+      .then((response) => {
         var randomQuote =
           response.quotes[Math.floor(Math.random() * response.quotes.length)];
 
@@ -39,22 +54,19 @@ class App extends React.Component<{}, AppState> {
           this.setState({
             quote: randomQuote["quote"],
             author: randomQuote["author"],
-            colour:
-              randomQuote["author"] === "Darth Vader"
-                ? Colour.Red
-                : randomQuote["author"] === "Yoda" ||
-                  randomQuote["author"] === "Qui-Gon Jinn"
-                ? Colour.Green
-                : randomQuote["author"] === "Obi-Wan Kenobi"
-                ? Colour.Blue
-                : Colour.Yellow
           });
         }
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
   render() {
+    const tweetLink: string =
+      "https://twitter.com/intent/tweet?text=" +
+      this.state.quote +
+      " - " +
+      this.state.author;
+
     return (
       <div id="quote-box">
         <Quote
@@ -62,7 +74,21 @@ class App extends React.Component<{}, AppState> {
           quote={this.state.quote}
           author={this.state.author}
         />
-        <Lightsaber colour={this.state.colour} handleClick={this.fetchQuote} />
+        <Lightsaber colour={this.state.colour} handleClick={this.setColour} />
+        <Button
+          text="New Quote"
+          colour={this.state.colour}
+          handleClick={this.fetchQuote}
+          id="new-quote"
+          href={null}
+        />
+        <Button
+          text="Tweet"
+          colour={this.state.colour}
+          handleClick={null}
+          id="tweet-quote"
+          href={tweetLink}
+        />
       </div>
     );
   }

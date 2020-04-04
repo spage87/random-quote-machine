@@ -25,6 +25,53 @@ body {
   color: yellow;
 }
 
+.button {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.button a:link, .button a:visited {
+  text-decoration: none;
+}
+
+.button--green {
+  border-color: green;
+}
+
+.button--green, .button--green a:link, .button--green a:visited {
+  color: green;
+}
+
+.button--blue {
+  color: blue;
+  border-color: blue;
+}
+
+.button--blue, .button--blue a:link, .button--blue a:visited {
+  color: blue;
+}
+
+.button--red {
+  color: red;
+  border-color: red;
+}
+
+.button--red, .button--red a:link, .button--red a:visited {
+  color: red;
+}
+
+.button--yellow {
+  border-color: yellow;
+}
+
+.button--yellow, .button--yellow a:link, .button--yellow a:visited {
+  color: yellow;
+}
+
 .lightsaber {
   display: flex;
 }
